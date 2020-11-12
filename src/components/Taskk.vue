@@ -1,27 +1,22 @@
 <template>
-  <div
-      @click="$emit('trocarEstado', task)"
-      class="task" :class="stateClass">
+  <div @click="$emit('trocarEstado', task)" class="task" :class="stateClass">
     <span @click.stop="$emit('taskDeleted', task)" class="close">X</span>
-    <p> {{ task.name }} </p>
   </div>
 </template>
 <script>
 export default {
   props: {
-    task: {type: Object, required: true},
+    task: { type: Object, required: true },
   },
   computed: {
     stateClass() {
       return {
         pending: this.task.pending,
-        done: !this.task.pending
-      }
-    }
-  }
-}
-
-
+        done: !this.task.pending,
+      };
+    },
+  },
+};
 </script>
 <style scoped>
 .task {
@@ -52,13 +47,13 @@ export default {
 
   text-decoration: line-through;
 }
-.pending .close{
+.pending .close {
   background: #b73229;
 }
-.done .close{
+.done .close {
   background: #0a8f08;
 }
-.close{
+.close {
   position: absolute;
   right: 10px;
   top: 10px;
@@ -66,9 +61,8 @@ export default {
   font-weight: 600;
   height: 20px;
   width: 20px;
-  border-radius: 10px ;
+  border-radius: 10px;
   display: flex;
   justify-content: center;
-
 }
 </style>
